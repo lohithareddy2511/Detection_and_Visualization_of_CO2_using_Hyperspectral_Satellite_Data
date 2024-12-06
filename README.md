@@ -1,4 +1,4 @@
-### Detection_and_Visualization_of_CO2_using_Hyperspectral_Satellite_Data
+##### Detection and Visualization of CO2 using Hyperspectral Satellite Data
 
 ## ABSTRACT
 
