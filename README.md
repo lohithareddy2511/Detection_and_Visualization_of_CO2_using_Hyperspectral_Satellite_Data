@@ -44,6 +44,3 @@ It identifies groups of pixels with similar spectral properties. Each pixel in t
 ![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/ea77ce1c-d397-4ccc-aa21-21eba490b5ee)
 
 The final image shows the spatial distribution of CO₂ across the scene, showing where CO₂ is more concentrated.
-
-
-
