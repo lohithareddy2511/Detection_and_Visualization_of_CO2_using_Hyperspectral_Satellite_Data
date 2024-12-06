@@ -22,16 +22,5 @@ Result Analysis: Analyze the final estimates to quantify CO2 concentrations and 
 ### STEP 6
 Visualization: Visualize the detected CO2 concentration, on a map using the Mapping Toolbox .
 
-![Screenshot 2024-12-06 200814](https://github.com/user-attachments/assets/4162fec9-b7af-42c3-960e-9b8286b3d022)
-
-
-
-![Screenshot 2024-12-06 200756](https://github.com/user-attachments/assets/ceac49ee-276b-4f61-ace1-b08b6c53dc36)
-
-
-
-![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/042e2888-d27c-46d4-baf7-aa1f52c85aaa)
-
-
 
 
