@@ -52,7 +52,6 @@ smoothedData = imgaussfilt3(dataCube, sigma);
 
 figure;
 imagesc(smoothedData(:, :, 4));  % Display one of the bands, for example, Band 4
-%colorbar;
 title('Denoised Image after Gaussian Smoothing');
 
 
@@ -94,17 +93,8 @@ co2Anomalies = co2DetectionMap > threshold;
 % Visualization
 figure;
 imagesc(clusteredImage);
-%colormap(gray);
-%colorbar;
 title('Normalized K-Means Clustering Result');
-
-%figure;
-%imagesc(co2Anomalies);
-%colormap(gray);
-%colorbar;
-%title('Detected CO2 Anomalies');
 
 figure;
 imagesc(co2DetectionMap);
-%colorbar;
 title('CO2 Detection Map');
