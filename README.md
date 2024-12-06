@@ -26,20 +26,20 @@ Visualization: Visualize the detected CO2 concentration, on a map using the Mapp
 
 The images provide a comprehensive analysis by showing the denoised image obtained by applying the Gaussian Smoothing Filter, then the clustering of data by using K-Means Clustering Algorithm, and finally showing the CO₂ distribution across the area.
 
-##### Denoised image after Gaussian Smoothing
+#### Denoised image after Gaussian Smoothing
 
 ![Screenshot 2024-12-06 200814](https://github.com/user-attachments/assets/d95981b2-7a69-4cfb-a13a-3f3a48b59486)
 
 The image shows a cleaned-up reflectance band from the dataset image, where bright colors mean more light reflected and dark colors mean less. The smoothing reduces noise, making land and water patterns clearer within the satellite’s path.
 
-##### Clustered Data 
+#### Clustered Data 
 
 ![Screenshot 2024-12-06 200756](https://github.com/user-attachments/assets/7ce22865-2f38-40ed-a8c2-1c29671f9427)
 
 It identifies groups of pixels with similar spectral properties. Each pixel in the hyperspectral image is categorized based on its spectral signature.
 
 
-##### CO2 Detection in the area
+#### CO2 Detection in the area
 
 ![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/ea77ce1c-d397-4ccc-aa21-21eba490b5ee)
 
