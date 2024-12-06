@@ -4,6 +4,9 @@ Solution to MATLAB and Simulink Challenge Project solutions
 Project number 251
 
 Project Description Link: https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20Visualization%20of%20CO2%20Concentration%20Using%20Hyperspectral%20Satellite%20Data/README.md
+# Project Details
+This project involves processing satellite hyperspectral data to detect areas with high concentrations of carbon dioxide (CO2) and visualizing the results on a geospatial world map. The analysis utilizes MATLAB's Hyperspectral Imaging Library for Image Processing and Mapping Toolbox to handle and analyze the data. By employing advanced technique of Cluster-Tuned Matched Filter (CTMF), k-means clustering, and spectral indices, the system identifies CO2 anomalies in the atmosphere.
+
 ## ABSTRACT
 
 The increasing levels of atmospheric CO2 are a major driver of climate change, making accurate monitoring and analysis essential for developing effective mitigation strategies. Hyperspectral remote sensing offers a unique capability to detect specific gases, including CO2, by capturing data across a wide range of spectral bands with high spatial resolution. This project aims to detect and visualize CO2 concentrations using hyperspectral satellite data processed in MATLAB. The project begins with the acquisition of hyperspectral satellite data from sources such as Landsat, AVIRIS, or Sentinel-2. These datasets contain detailed spectral information that can be used to identify the characteristic absorption features of CO2. Following data acquisition, preprocessing steps are performed, including radiometric calibration to convert raw sensor data into physical units, and atmospheric correction to remove the effects of the atmosphere on the captured data. The core of the project involves developing a detection algorithm in MATLAB that focuses on the spectral bands where CO2 exhibits strong absorption features. This algorithm quantifies the CO2 concentration by analyzing the depth and shape of these absorption features. The detected CO2 concentrations are then visualized using MATLAB’s graphical tools, resulting in spatial maps that represent the distribution of CO2 across the study area. To ensure the accuracy of the results, the detected CO2 concentrations are validated against ground-based measurements, if available. This step is crucial for confirming the reliability of the remote sensing approach. The outcomes of this project provide valuable insights into the spatial distribution of atmospheric CO2, contributing to a better understanding of regional and global carbon cycles. The methodologies developed can be extended to monitor other atmospheric gases, offering a versatile tool for environmental monitoring and research.
@@ -60,3 +63,24 @@ It identifies groups of pixels with similar spectral properties. Each pixel in t
 ![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/ea77ce1c-d397-4ccc-aa21-21eba490b5ee)
 
 The final image shows the spatial distribution of CO₂ across the scene, showing where CO₂ is more concentrated.
+
+## How to Run
+
+#### Prerequisites
+Before running the code, make sure you have the following toolboxes and resources installed:
+i) MATLAB (latest version recommended)
+ii) Image Processing Toolbox
+iii) Statistics and Machine Learning Toolbox
+iv) Computer Vision Toolbox
+v) Mapping Toolbox
+
+#### Step-by-Step Instructions
+i) Load Input Data
+ii) Ensure your input data files (e.g., LC08_L1TP_113082_20211206_20211206_01_RT_B1.tif, etc.) are available in your working directory.
+iii) Set Up the Environment
+iv) Open MATLAB.
+v) Set your working directory to the location of your input data files and the MATLAB script.
+
+#### Run the Code
+i) Copy and paste the following code into a new MATLAB script file.
+ii) Execute the script in MATLAB by clicking the "Run" button or typing run('code.m') in the MATLAB command window.
