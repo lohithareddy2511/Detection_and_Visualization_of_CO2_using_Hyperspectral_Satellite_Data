@@ -11,7 +11,18 @@ Data Acquisition: Download hyperspectral datasets from relevant sources such as 
 Data Preprocessing: Load the hyperspectral data into MATLAB using the hypercube function. Perform any necessary preprocessing steps such as noise reduction and Atmospheric Correction to convert radiance to reflectance.
 
 ### STEP 3
-CO2 Detection: ImplementING algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). Thos technique involves: i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties. ii)Matched Filter Design: For each cluster, design a matched filter tuned to the specific spectral signature of CO2. iii)Filter Application: Apply the matched filters to the hyperspectral data to detect CO2 anomalies.
+CO2 Detection: ImplementING algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). Thos technique involves: 
+i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
+
+K-Means Clustering algorithm involves clustering the hyperspectral data using K-Means Clustering. This unsupervised learning algorithm groups pixels into clusters with similar spectral characteristics. Each cluster represents areas in the image that have similar reflectance properties, such as vegetation, water bodies, or atmospheric features.
+
+ii)Matched Filter Design: For each cluster, design a matched filter tuned to the specific spectral signature of CO2. 
+
+After clustering, a matched filter is designed for each cluster. This filter is mathematically tailored to detect CO2's unique spectral signature. It enhances the spectral features of CO2 while suppressing other signals, effectively isolating the CO2 concentration from other elements in the dataset.
+
+iii)Filter Application: Apply the matched filters to the hyperspectral data to detect CO2 anomalies.
+
+The matched filter is then applied to the clustered hyperspectral data to detect CO2 anomalies. The output of this step is a map showing areas where CO2 concentrations are significantly higher than the surrounding regions.
 
 ### STEP 4
 CO2 Concentration Estimation: Estimate CO2 concentration based on the calculated band ratios.
