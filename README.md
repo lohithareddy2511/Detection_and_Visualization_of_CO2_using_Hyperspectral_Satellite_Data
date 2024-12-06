@@ -12,6 +12,7 @@ Data Preprocessing: Load the hyperspectral data into MATLAB using the hypercube 
 
 ### STEP 3
 CO2 Detection: ImplementING algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). Thos technique involves: 
+
 i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
 K-Means Clustering algorithm involves clustering the hyperspectral data using K-Means Clustering. This unsupervised learning algorithm groups pixels into clusters with similar spectral characteristics. Each cluster represents areas in the image that have similar reflectance properties, such as vegetation, water bodies, or atmospheric features.
