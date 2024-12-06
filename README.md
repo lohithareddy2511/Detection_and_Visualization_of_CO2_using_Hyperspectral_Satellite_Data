@@ -11,7 +11,7 @@ Data Acquisition: Download hyperspectral datasets from relevant sources such as 
 Data Preprocessing: Load the hyperspectral data into MATLAB using the hypercube function. Perform any necessary preprocessing steps such as noise reduction and Atmospheric Correction to convert radiance to reflectance.
 
 ### STEP 3
-CO2 Detection: ImplementING algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). It involves: 
+CO2 Detection: Implementing algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). It involves: 
 
 i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
