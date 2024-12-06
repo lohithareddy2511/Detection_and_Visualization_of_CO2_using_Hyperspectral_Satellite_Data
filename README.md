@@ -7,11 +7,11 @@ The increasing levels of atmospheric CO2 are a major driver of climate change, m
 ### STEP 1: Data Acquisition
 Download hyperspectral datasets from relevant sources such as Landsat, or AVIRIS.
 
-### STEP 2
-Data Preprocessing: Load the hyperspectral data into MATLAB using the hypercube function. Perform any necessary preprocessing steps such as noise reduction and Atmospheric Correction to convert radiance to reflectance.
+### STEP 2: Data Preprocessing
+Load the hyperspectral data into MATLAB using the hypercube function. Perform any necessary preprocessing steps such as noise reduction and Atmospheric Correction to convert radiance to reflectance.
 
-### STEP 3
-CO2 Detection: Implementing algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). It involves: 
+### STEP 3: CO2 Detection
+Implementing algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). It involves: 
 
 i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
@@ -25,14 +25,14 @@ iii)Filter Application: Apply the matched filters to the hyperspectral data to d
 
 The matched filter is then applied to the clustered hyperspectral data to detect CO2 anomalies. The output of this step is a map showing areas where CO2 concentrations are significantly higher than the surrounding regions.
 
-### STEP 4
-CO2 Concentration Estimation: Estimate CO2 concentration based on the calculated band ratios.
+### STEP 4: CO2 Concentration Estimation
+Estimate CO2 concentration based on the calculated band ratios.
 
-### STEP 5
-Result Analysis: Analyze the final estimates to quantify CO2 concentrations and identify regions with elevated CO2 levels
+### STEP 5: Result Analysis
+Analyze the final estimates to quantify CO2 concentrations and identify regions with elevated CO2 levels
 
-### STEP 6
-Visualization: Visualize the detected CO2 concentration, on a map using the Mapping Toolbox .
+### STEP 6: Visualization
+Visualize the detected CO2 concentration, on a map using the Mapping Toolbox .
 
 ### FINAL OUTPUTS
 
