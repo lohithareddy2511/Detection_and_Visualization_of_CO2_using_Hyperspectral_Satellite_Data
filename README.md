@@ -68,19 +68,31 @@ The final image shows the spatial distribution of CO₂ across the scene, showin
 
 #### Prerequisites
 Before running the code, make sure you have the following toolboxes and resources installed:
+
 i) MATLAB (latest version recommended)
+
 ii) Image Processing Toolbox
+
 iii) Statistics and Machine Learning Toolbox
+
 iv) Computer Vision Toolbox
+
 v) Mapping Toolbox
 
 #### Step-by-Step Instructions
+
 i) Load Input Data
+
 ii) Ensure your input data files (e.g., LC08_L1TP_113082_20211206_20211206_01_RT_B1.tif, etc.) are available in your working directory.
+
 iii) Set Up the Environment
+
 iv) Open MATLAB.
+
 v) Set your working directory to the location of your input data files and the MATLAB script.
 
 #### Run the Code
+
 i) Copy and paste the following code into a new MATLAB script file.
+
 ii) Execute the script in MATLAB by clicking the "Run" button or typing run('code.m') in the MATLAB command window.
