@@ -21,15 +21,15 @@ We preprocessed the data using MATLAB built-in hypercube function. We also used 
 ### Step 3: Identification of CO2
 In order to use algorithms that determine CO2 concentration from hyperspectral data, CO2 levels are quantified using spectral indices or other relevant methodologies. The technique used to estimate CO2 emission from hyperspectral images is called Cluster-Tuned Matched Filter (CTMF). It consists of: 
 
-i) Clustering: We employed k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
+i)##### Clustering: We employed k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
 The hyperspectral data is clustered using the K-Means Clustering method, an unsupervised learning method groups pixels based on similar spectral characteristics. Each cluster in the image represents regions with similar reflectance properties, such as vegetation, aquatic bodies, or atmospheric phenomena.
 
-ii) Matched Filter Design: We developed a filter that corresponds to each cluster's distinct CO2 spectral signature. 
+ii)##### Matched Filter Design: We developed a filter that corresponds to each cluster's distinct CO2 spectral signature. 
 
 After clustering, a matching filter is applied to each cluster. In order to detect the unique spectral signature of CO2, this filter was especially created analytically. By boosting the CO2 spectral characteristics and decreasing other signals, it effectively isolates the CO2 concentration from other dataset components.
 
-iii) Filter Application: Use the proper filters on the hyperspectral data to identify CO2 abnormalities.
+iii)##### Filter Application: Use the proper filters on the hyperspectral data to identify CO2 abnormalities.
 
 To find CO2 anomalies, the clustered hyperspectral data is subsequently filtered using the proper filter. The result of this phase is a map showing areas with notably higher CO2 concentrations than the surrounding area.
 
@@ -48,20 +48,20 @@ By showing the CO₂ distribution over the area, the data clustering procedure u
 
 #### Denoising images after Gaussian smoothing
 
-![December 6, 2024] A screenshot from https://github.com/user-attachments/assets/d95981b2-7a69-4cfb-a13a-3f3a48b59486 is provided.
+![Screenshot 2024-12-06 200814](https://github.com/user-attachments/assets/d95981b2-7a69-4cfb-a13a-3f3a48b59486)
 
 Dark colors don't reflect as much light as bright ones do. A cleaned-up reflectance band from the dataset image is shown in the image. By reducing noise levels while in orbit, the smoothing enhances the satellite's perception of land and water patterns.
 
 #### Clustering of Data 
 
-200656 December 6, 2024 https://github.com/user-attachments/assets/7ce22865-2f38-40ed-a8c2-1c29671f9427 is the URL.
+![Screenshot 2024-12-06 200756](https://github.com/user-attachments/assets/7ce22865-2f38-40ed-a8c2-1c29671f9427)
 
 It locates groups of pixels with similar spectral properties. Each pixel in the hyperspectral image is classified based on its spectral signature.
 
 
 #### Local Results for CO2
 
-![6 December 200743, 2024] Screenshot Eba490b5ee Ea77ce1c-d397-4ccc-aa21-21 Resources: https://github.com/user-attachments
+![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/ea77ce1c-d397-4ccc-aa21-21eba490b5ee)
 
 The final graphic shows the landscape's spatial distribution of CO₂, emphasizing regions with higher concentrations.
 
