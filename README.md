@@ -21,15 +21,15 @@ We preprocessed the data using MATLAB built-in hypercube function. We also used 
 ### Step 3: Identification of CO2
 In order to use algorithms that determine CO2 concentration from hyperspectral data, CO2 levels are quantified using spectral indices or other relevant methodologies. The technique used to estimate CO2 emission from hyperspectral images is called Cluster-Tuned Matched Filter (CTMF). It consists of: 
 
-i)##### Clustering: We employed k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
+i)#### Clustering: We employed k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
 The hyperspectral data is clustered using the K-Means Clustering method, an unsupervised learning method groups pixels based on similar spectral characteristics. Each cluster in the image represents regions with similar reflectance properties, such as vegetation, aquatic bodies, or atmospheric phenomena.
 
-ii)##### Matched Filter Design: We developed a filter that corresponds to each cluster's distinct CO2 spectral signature. 
+ii)#### Matched Filter Design: We developed a filter that corresponds to each cluster's distinct CO2 spectral signature. 
 
 After clustering, a matching filter is applied to each cluster. In order to detect the unique spectral signature of CO2, this filter was especially created analytically. By boosting the CO2 spectral characteristics and decreasing other signals, it effectively isolates the CO2 concentration from other dataset components.
 
-iii)##### Filter Application: Use the proper filters on the hyperspectral data to identify CO2 abnormalities.
+iii)#### Filter Application: Use the proper filters on the hyperspectral data to identify CO2 abnormalities.
 
 To find CO2 anomalies, the clustered hyperspectral data is subsequently filtered using the proper filter. The result of this phase is a map showing areas with notably higher CO2 concentrations than the surrounding area.
 
