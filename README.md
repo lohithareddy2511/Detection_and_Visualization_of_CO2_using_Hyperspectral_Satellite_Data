@@ -1,68 +1,70 @@
-# Detection and Visualization of CO2 Concentration Using Hyperspectral Satellite Data
-Solution to MATLAB and Simulink Challenge Project solutions
+# MATLAB and Simulink Challenge Project Solutions for CO2 Detection and Visualization Using Hyperspectral Satellite Data
 
-Project number 251
+Project 251
 
-Project Description Link: https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20Visualization%20of%20CO2%20Concentration%20Using%20Hyperspectral%20Satellite%20Data/README.md
+
+
+The project description can be found at https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20.Visualization of CO2 Concentration Hyperspectral SatelliteData/README.md 
 # Project Details
-This project involves processing satellite hyperspectral data to detect areas with high concentrations of carbon dioxide (CO2) and visualizing the results on a geospatial world map. The analysis utilizes MATLAB's Hyperspectral Imaging Library for Image Processing and Mapping Toolbox to handle and analyze the data. By employing advanced technique of Cluster-Tuned Matched Filter (CTMF), k-means clustering, and spectral indices, the system identifies CO2 anomalies in the atmosphere.
+In this work, satellite hyperspectral data is processed to identify high carbon dioxide (CO2) concentrations, and the results are displayed on a worldwide geographic map. The Hyperspectral Imaging Library for Image Processing and Mapping Toolbox in MATLAB is used to handle and analyze the data. The advanced Cluster-Tuned Matched Filter (CTMF) technology, k-means clustering, and spectral indices are used by the system to identify CO2 anomalies in the atmosphere.
 
 ## ABSTRACT
 
-The increasing levels of atmospheric CO2 are a major driver of climate change, making accurate monitoring and analysis essential for developing effective mitigation strategies. Hyperspectral remote sensing offers a unique capability to detect specific gases, including CO2, by capturing data across a wide range of spectral bands with high spatial resolution. This project aims to detect and visualize CO2 concentrations using hyperspectral satellite data processed in MATLAB. The project begins with the acquisition of hyperspectral satellite data from sources such as Landsat, AVIRIS, or Sentinel-2. These datasets contain detailed spectral information that can be used to identify the characteristic absorption features of CO2. Following data acquisition, preprocessing steps are performed, including radiometric calibration to convert raw sensor data into physical units, and atmospheric correction to remove the effects of the atmosphere on the captured data. The core of the project involves developing a detection algorithm in MATLAB that focuses on the spectral bands where CO2 exhibits strong absorption features. This algorithm quantifies the CO2 concentration by analyzing the depth and shape of these absorption features. The detected CO2 concentrations are then visualized using MATLAB’s graphical tools, resulting in spatial maps that represent the distribution of CO2 across the study area. To ensure the accuracy of the results, the detected CO2 concentrations are validated against ground-based measurements, if available. This step is crucial for confirming the reliability of the remote sensing approach. The outcomes of this project provide valuable insights into the spatial distribution of atmospheric CO2, contributing to a better understanding of regional and global carbon cycles. The methodologies developed can be extended to monitor other atmospheric gases, offering a versatile tool for environmental monitoring and research.
+Since increasing atmospheric CO2 concentrations are one of the main causes of climate change, accurate monitoring and analysis are crucial for successful mitigation strategies. Hyperspectral remote sensing provides a unique capacity to identify specific gases, such CO2, by gathering data with high spatial resolution over a range of spectral bands. The goal of this project is to detect and visualize CO2 concentrations by evaluating hyperspectral satellite data using MATLAB. Sentinel-2, AVIRIS, and Landsat hyperspectral satellite data are being collected as part of the study's initial phase. The detailed spectrum information in these recordings can be used to identify the unique absorption properties of CO2. Following data collection, preprocessing steps are taken, such as radiometric calibration to convert raw sensor data into physical units and atmospheric correction to remove the influence of the atmosphere on the recorded data. The primary objective of the work is to develop a MATLAB detection method that focuses on the spectrum regions where CO2 exhibits notable absorption properties. Our program determines the CO2 concentration by examining the form and depth of these absorption features. The recorded CO2 concentrations are then graphically displayed using MATLAB's features, creating spatial maps that illustrate the CO2 distribution throughout the study area. To ensure the accuracy of the results, the detected CO2 concentrations are compared with any available ground-based data. This stage is necessary to confirm that the remote sensing method is accurate. The results of the study provide valuable information regarding the spatial distribution of atmospheric CO2, which advances our understanding of regional and global carbon cycles. More atmospheric gases can be tracked using the existing techniques, making it a versatile tool for environmental research and monitoring.
 
-### STEP 1: Data Acquisition
-Download hyperspectral datasets from relevant sources such as Landsat, or AVIRIS.
+### Step 1: Information Collection
+The provided repository was used to execute the Matlab example "https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html".Real-time usage of hyperspectral datasets from relevant sources, such AVIRIS or Landsat is possible.
 
-### STEP 2: Data Preprocessing
-Load the hyperspectral data into MATLAB using the hypercube function. Perform any necessary preprocessing steps such as noise reduction and Atmospheric Correction to convert radiance to reflectance.
+### Step 2: Data Preparation
+We preprocessed the data using MATLAB built-in hypercube function. We also used some of the atmospheric adjustment and noise reduction techniques to transform it from radiance to reflactance for further preprocessing. For further precessing, advanced atmospheric correction algorithms and better noise reduction filters can be applied.
 
-### STEP 3: CO2 Detection
-Implementing algorithms to detect CO2 concentration from hyperspectral data by using spectral indices or other relevant methods to quantify CO2 levels. The technique used for estimating CO2 emission from hyperspectral images is Cluster-Tuned Matched Filter (CTMF). It involves: 
+### Step 3: Identification of CO2
+In order to use algorithms that determine CO2 concentration from hyperspectral data, CO2 levels are quantified using spectral indices or other relevant methodologies. The technique used to estimate CO2 emission from hyperspectral images is called Cluster-Tuned Matched Filter (CTMF). It consists of: 
 
-i)Clustering: Perform k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
+i) Clustering: We employed k-means clustering on the hyperspectral data to group pixels with similar spectral properties.
 
-K-Means Clustering algorithm involves clustering the hyperspectral data using K-Means Clustering. This unsupervised learning algorithm groups pixels into clusters with similar spectral characteristics. Each cluster represents areas in the image that have similar reflectance properties, such as vegetation, water bodies, or atmospheric features.
+The hyperspectral data is clustered using the K-Means Clustering method, an unsupervised learning method groups pixels based on similar spectral characteristics. Each cluster in the image represents regions with similar reflectance properties, such as vegetation, aquatic bodies, or atmospheric phenomena.
 
-ii)Matched Filter Design: For each cluster, design a matched filter tuned to the specific spectral signature of CO2. 
+ii) Matched Filter Design: We developed a filter that corresponds to each cluster's distinct CO2 spectral signature. 
 
-After clustering, a matched filter is designed for each cluster. This filter is mathematically tailored to detect CO2's unique spectral signature. It enhances the spectral features of CO2 while suppressing other signals, effectively isolating the CO2 concentration from other elements in the dataset.
+After clustering, a matching filter is applied to each cluster. In order to detect the unique spectral signature of CO2, this filter was especially created analytically. By boosting the CO2 spectral characteristics and decreasing other signals, it effectively isolates the CO2 concentration from other dataset components.
 
-iii)Filter Application: Apply the matched filters to the hyperspectral data to detect CO2 anomalies.
+iii) Filter Application: Use the proper filters on the hyperspectral data to identify CO2 abnormalities.
 
-The matched filter is then applied to the clustered hyperspectral data to detect CO2 anomalies. The output of this step is a map showing areas where CO2 concentrations are significantly higher than the surrounding regions.
+To find CO2 anomalies, the clustered hyperspectral data is subsequently filtered using the proper filter. The result of this phase is a map showing areas with notably higher CO2 concentrations than the surrounding area.
 
-### STEP 4: CO2 Concentration Estimation
-Estimate CO2 concentration based on the calculated band ratios.
+### Step 4: Calculate the CO2 Level
+We can determine the CO2 concentration using the anticipated band ratios.
 
-### STEP 5: Result Analysis
-Analyze the final estimates to quantify CO2 concentrations and identify regions with elevated CO2 levels
+### Step 5: Results Analysis
+To ascertain CO2 concentrations and identify regions with elevated CO2 levels, review the final forecasts.
 
-### STEP 6: Visualization
-Visualize the detected CO2 concentration, on a map using the Mapping Toolbox .
+### Step 6: Visualization
+To view the observed CO2 concentration on a map, use the Mapping Toolbox.
 
-### FINAL OUTPUTS
+### FINAL OUTCOMES
 
-The images provide a comprehensive analysis by showing the denoised image obtained by applying the Gaussian Smoothing Filter, then the clustering of data by using K-Means Clustering Algorithm, and finally showing the CO₂ distribution across the area.
+By showing the CO₂ distribution over the area, the data clustering procedure using the K-Means Clustering Algorithm, and the denoised image created by using the Gaussian Smoothing Filter, the photos provide a comprehensive analysis.
 
-#### Denoised image after Gaussian Smoothing
+#### Denoising images after Gaussian smoothing
 
-![Screenshot 2024-12-06 200814](https://github.com/user-attachments/assets/d95981b2-7a69-4cfb-a13a-3f3a48b59486)
+![December 6, 2024] A screenshot from https://github.com/user-attachments/assets/d95981b2-7a69-4cfb-a13a-3f3a48b59486 is provided.
 
-The image shows a cleaned-up reflectance band from the dataset image, where bright colors mean more light reflected and dark colors mean less. The smoothing reduces noise, making land and water patterns clearer within the satellite’s path.
+Dark colors don't reflect as much light as bright ones do. A cleaned-up reflectance band from the dataset image is shown in the image. By reducing noise levels while in orbit, the smoothing enhances the satellite's perception of land and water patterns.
 
-#### Clustered Data 
+#### Clustering of Data 
 
-![Screenshot 2024-12-06 200756](https://github.com/user-attachments/assets/7ce22865-2f38-40ed-a8c2-1c29671f9427)
+200656 December 6, 2024 https://github.com/user-attachments/assets/7ce22865-2f38-40ed-a8c2-1c29671f9427 is the URL.
 
-It identifies groups of pixels with similar spectral properties. Each pixel in the hyperspectral image is categorized based on its spectral signature.
+It locates groups of pixels with similar spectral properties. Each pixel in the hyperspectral image is classified based on its spectral signature.
 
 
-#### CO2 Detection in the area
+#### Local Results for CO2
 
-![Screenshot 2024-12-06 200743](https://github.com/user-attachments/assets/ea77ce1c-d397-4ccc-aa21-21eba490b5ee)
+![6 December 200743, 2024] Screenshot Eba490b5ee Ea77ce1c-d397-4ccc-aa21-21 Resources: https://github.com/user-attachments
 
-The final image shows the spatial distribution of CO₂ across the scene, showing where CO₂ is more concentrated.
+The final graphic shows the landscape's spatial distribution of CO₂, emphasizing regions with higher concentrations.
 
-## How to Run
+## Operational Guidelines
+
 
