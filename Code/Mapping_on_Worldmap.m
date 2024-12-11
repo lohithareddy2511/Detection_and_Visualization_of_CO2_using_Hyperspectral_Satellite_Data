@@ -15,5 +15,4 @@ worldmap([minLat, maxLat], [minLon, maxLon]);
 load coastlines;
 plotm(coastlat, coastlon, 'k'); % Plot coastlines
 geoshow(LAT, LON, co2DetectionMap, 'DisplayType', 'texturemap');
-colorbar;
 title('CO2 Detection Map on World Map');
