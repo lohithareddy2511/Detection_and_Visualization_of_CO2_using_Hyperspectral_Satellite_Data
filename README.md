@@ -78,4 +78,7 @@ By showing the CO₂ distribution over the area, the data clustering procedure u
 
 ## Video explanation on how to run the code
 
+https://github.com/user-attachments/assets/2ef8feab-d220-48bf-b926-bba2265a6dab
+
+
 
