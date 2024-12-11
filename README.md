@@ -66,6 +66,9 @@ To view the observed CO2 concentration on a map, use the Mapping Toolbox.
 
 By showing the CO₂ distribution over the area, the data clustering procedure using the K-Means Clustering Algorithm, and the denoised image created by using the Gaussian Smoothing Filter, the photos provide a comprehensive analysis.
 
+#### Visualisation on the World Map 
+
+![Mapping_on_worldmap](https://github.com/user-attachments/assets/70c6ead3-4445-4bd3-881f-9b88b2b4c3e3)
 
 
 
