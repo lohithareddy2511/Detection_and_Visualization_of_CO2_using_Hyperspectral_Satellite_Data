@@ -15,6 +15,10 @@ CO2 levels in the atmosphere are also on the rise therefore perfect than monitor
 ### Step 1: Information Collection
 The provided repository was used to execute the Matlab example ["https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html"](https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html) .Real-time usage of hyperspectral datasets from relevant sources, such AVIRIS or Landsat is possible.
 
+
+![Screenshot 2024-12-11 173637](https://github.com/user-attachments/assets/6f043165-5eab-4ed5-90b9-217f59085d8d)
+
+
 ### Step 2: Data Preparation
 We preprocessed the data using MATLAB built-in hypercube function. We also used some of the atmospheric adjustment and noise reduction techniques to transform it from radiance to reflactance for further preprocessing. For further precessing, advanced atmospheric correction algorithms and better noise reduction filters can be applied.
 
