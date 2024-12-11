@@ -4,7 +4,7 @@ Project 251
 
 
 
-The project description can be found at https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20.Visualization of CO2 Concentration Hyperspectral SatelliteData/README.md 
+The project description can be found at [https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20.Visualization of CO2 Concentration Hyperspectral SatelliteData/README.md ](https://github.com/mathworks/MATLAB-Simulink-Challenge-Project-Hub/blob/main/projects/Detection%20and%20Visualization%20of%20CO2%20Concentration%20Using%20Hyperspectral%20Satellite%20Data/README.md)
 # Project Details
 In this work, satellite hyperspectral data is processed to identify high carbon dioxide (CO2) concentrations, and the results are displayed on a worldwide geographic map. The Hyperspectral Imaging Library for Image Processing and Mapping Toolbox in MATLAB is used to handle and analyze the data. The advanced Cluster-Tuned Matched Filter (CTMF) technology, k-means clustering, and spectral indices are used by the system to identify CO2 anomalies in the atmosphere.
 
