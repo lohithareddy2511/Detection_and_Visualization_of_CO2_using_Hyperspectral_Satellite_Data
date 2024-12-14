@@ -1,3 +1,6 @@
+// The metadata for a Landsat 8 satellite scene that served as the dataset for this project is provided in the file, which includes information on the dataset's attributes, processing, and acquisition.
+
+
 GROUP = L1_METADATA_FILE
   GROUP = METADATA_FILE_INFO
     ORIGIN = "Image courtesy of the U.S. Geological Survey"
