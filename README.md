@@ -140,6 +140,11 @@ b. Visualization: The extracted bands are visualized using MATLAB’s imagesc fu
 c. Concentration Estimation: A simple linear calibration is applied to convert pixel intensities into CO₂ concentration (ppm). This uses predefined scaling factors and offsets, which simulate real-world calibration. The derived CO₂ concentration maps are visualized to illustrate spatial variations.
 The algorithm integrates critical components, including spectral filtering and intensity-to-concentration mapping, to achieve reliable CO₂ detection.
 
+![Screenshot 2024-12-15 193130](https://github.com/user-attachments/assets/5f012469-56e0-4761-9f4a-f98ef603eabc)
+
+### Step 4: Data Analysis and Mapping
+
+The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed spatially. Latitude and longitude grids are generated to align the concentration data with geographical coordinates. The linspace function maps the image dimensions to global latitude and longitude ranges, enabling spatial interpretation. Visualization tools, including color-mapped images, highlight regions with varying CO₂ concentrations. Any missing data points (NaNs) are replaced with zeros to maintain data consistency, ensuring a smooth analytical process.
 
 
 
