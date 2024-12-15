@@ -27,7 +27,7 @@ We preprocessed the data using MATLAB built-in hypercube function. We also used 
 
 A cleaned-up reflectance band from the dataset image is shown in the image. By reducing noise levels while in orbit, the smoothing enhances the satellite's perception of land and water patterns.
 
-### Step 3: Identification of CO2
+### Step 3: CO2 Detection Algorithm
 In order to use algorithms that determine CO2 concentration from hyperspectral data, CO2 levels are quantified using spectral indices or other relevant methodologies. The technique used to estimate CO2 emission from hyperspectral images is called Cluster-Tuned Matched Filter (CTMF). It consists of: 
 
 ##### i)Clustering: 
@@ -128,6 +128,17 @@ From the format options, choose "AVIRIS" and then "AVIRIS Classic".
 ### Step 2: Data Preparation
 
 The code ensures the integrity and usability of the loaded data. It checks for the presence of hyperspectral data and wavelength information. The program dynamically identifies the fields containing this data, ensuring flexibility for different datasets. Additionally, the dimensions of the hyperspectral cube are extracted and displayed to confirm the dataset’s structure. This step ensures that the data is properly organized for further processing.
+
+![Screenshot 2024-12-15 192759](https://github.com/user-attachments/assets/1d5ded96-8f93-4947-aa3e-73b9b3d7abb6)
+
+### Step 3: CO2 Detection Algorithm
+
+The algorithm focuses on leveraging the hyperspectral cube to isolate and analyze CO₂ absorption bands. Specifically, the NIR and SWIR absorption regions are targeted. For each region:
+
+a. Band Extraction: The relevant hyperspectral slices corresponding to CO₂ absorption bands are extracted based on the previously identified indices.
+b. Visualization: The extracted bands are visualized using MATLAB’s imagesc function, with colormaps (jet and parula) enhancing interpretability. Titles and axis labels provide context, such as the specific wavelength.
+c. Concentration Estimation: A simple linear calibration is applied to convert pixel intensities into CO₂ concentration (ppm). This uses predefined scaling factors and offsets, which simulate real-world calibration. The derived CO₂ concentration maps are visualized to illustrate spatial variations.
+The algorithm integrates critical components, including spectral filtering and intensity-to-concentration mapping, to achieve reliable CO₂ detection.
 
 
 
