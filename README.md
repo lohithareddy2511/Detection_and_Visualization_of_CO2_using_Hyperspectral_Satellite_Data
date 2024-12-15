@@ -143,6 +143,9 @@ The algorithm integrates critical components, including spectral filtering and i
 
 The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed spatially. Latitude and longitude grids are generated to align the concentration data with geographical coordinates. The linspace function maps the image dimensions to global latitude and longitude ranges, enabling spatial interpretation. Visualization tools, including color-mapped images, highlight regions with varying CO₂ concentrations. Any missing data points (NaNs) are replaced with zeros to maintain data consistency, ensuring a smooth analytical process.
 
+![image](https://github.com/user-attachments/assets/b89f5b89-fb7d-49ff-89ea-d7e57507f377)
+
+![image](https://github.com/user-attachments/assets/e889e771-21b3-42ee-ad0d-01aa322f0b1d)
 
 
 
@@ -150,4 +153,7 @@ The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed
 
 Visualize the detected CO2 concentration, including geospatial information, on a world map using the Mapping Toolbox. Validation is achieved through visualization and error checks. The extracted bands and concentration maps are scrutinized for logical consistency, such as ensuring non-zero pixel values and meaningful spatial variations. The CO₂ maps are compared across NIR and SWIR bands to detect discrepancies or confirm agreement. Additionally, the use of predefined calibration parameters allows a baseline comparison for estimated concentrations. These steps collectively validate the robustness of the algorithm, ensuring that the results are both scientifically meaningful and practically applicable.
 
+![image](https://github.com/user-attachments/assets/0e68ba88-2def-4e3e-ab4c-f57e60e2825d)
+
+![image](https://github.com/user-attachments/assets/8f1c47af-9e0a-4d3f-af87-cc1b454f53a3)
 
