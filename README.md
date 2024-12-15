@@ -48,7 +48,7 @@ To find CO2 anomalies, the clustered hyperspectral data is subsequently filtered
 
 It locates groups of pixels with similar spectral properties. Each pixel in the hyperspectral image is classified based on its spectral signature.
 
-### Step 4: Calculate the CO2 Level
+### Step 4: Data Analysis
 We can determine the CO2 concentration using the anticipated band ratios.
 
 #### Local Results for CO2
@@ -57,10 +57,7 @@ We can determine the CO2 concentration using the anticipated band ratios.
 
 The final graphic shows the landscape's spatial distribution of CO₂, emphasizing regions with higher concentrations.
 
-### Step 5: Results Analysis
-To ascertain CO2 concentrations and identify regions with elevated CO2 levels, review the final forecasts.
-
-### Step 6: Visualization
+### Step 5: Visualization
 To view the observed CO2 concentration on a map, use the Mapping Toolbox.
 
 ### FINAL OUTCOMES
@@ -142,10 +139,15 @@ The algorithm integrates critical components, including spectral filtering and i
 
 ![Screenshot 2024-12-15 193130](https://github.com/user-attachments/assets/5f012469-56e0-4761-9f4a-f98ef603eabc)
 
-### Step 4: Data Analysis and Mapping
+### Step 4: Data Analysis
 
 The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed spatially. Latitude and longitude grids are generated to align the concentration data with geographical coordinates. The linspace function maps the image dimensions to global latitude and longitude ranges, enabling spatial interpretation. Visualization tools, including color-mapped images, highlight regions with varying CO₂ concentrations. Any missing data points (NaNs) are replaced with zeros to maintain data consistency, ensuring a smooth analytical process.
 
 
+
+
+### Step 5: Visualization
+
+Visualize the detected CO2 concentration, including geospatial information, on a world map using the Mapping Toolbox. Validation is achieved through visualization and error checks. The extracted bands and concentration maps are scrutinized for logical consistency, such as ensuring non-zero pixel values and meaningful spatial variations. The CO₂ maps are compared across NIR and SWIR bands to detect discrepancies or confirm agreement. Additionally, the use of predefined calibration parameters allows a baseline comparison for estimated concentrations. These steps collectively validate the robustness of the algorithm, ensuring that the results are both scientifically meaningful and practically applicable.
 
 
