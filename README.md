@@ -119,6 +119,7 @@ Step 11: Browse to the folder containing the unzipped data and select the .hdr f
 Step 12: Once the files are selected, IDCubeLite will process them and generate a MATLAB-compatible data file. The generated file will be saved to your system.
 
 ![Screenshot 2024-12-15 171145](https://github.com/user-attachments/assets/30f34b6b-d781-4177-912f-eb82c5b5db28)
+
 ![Screenshot 2024-12-15 172228](https://github.com/user-attachments/assets/f43885be-a11b-4a48-95da-ae2e71c5d778)
 
 
