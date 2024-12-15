@@ -12,6 +12,7 @@ In this work, satellite hyperspectral data is processed to identify high carbon 
 CO2 levels in the atmosphere are also on the rise therefore perfect than monitoring and analyzing the rate at which it’s accumulate is crucial in formulation of mitigation measures. One of the main advantages of hyperspectral remote sensing is that the system is able to identify and quantify particular gases, for instance, carbon dioxide by collecting data in a large number of narrow bands at high spatial resolution. This project proposes to predict and map CO2 concentrations utilizing hyperspectral satellite data analyzed in MATLAB. The project starts with the collection of hyperspectral satellite data from Landsat, AVIRIS, or Sentinel-2 instruments or similar. These datasets are very rich in terms of spectral data we have the ability to see what the ‘absorption spectrum of CO2’looks like. After collecting data from a given area, there are some steps taken where; raw data obtained from a specific sensor is converted into physical units through radiometric calibration. The principal part of the project deals with the creation of a detection algorithm in MATLAB that targets the groups of bands, which correspond to the CO2 band strengths. The depth and shape of these absorption features are used to quantify the CO2 concentration using this algorithm. This measures are then used to produce graphical maps on MATLAB which show the distribution of CO2 in the study area. You can compare the detected CO2 concentrations with ground-based measurements, if present. The results of this project make it possible to understand the spatial-temporal distribution of CO2 in the atmosphere and make conclusions regarding regional and global carbon budgets. These methodologies may be generalized to other gases present in the atmosphere thereby making it a powerful instrument in environmental or atmospheric investigations.
 
 ### For the sample data given in Mathworks:
+
 ### Step 1: Data Collection
 The provided repository was used to execute the Matlab example ["https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html"](https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html) .Real-time usage of hyperspectral datasets from relevant sources, such AVIRIS or Landsat is possible.
 
@@ -77,51 +78,54 @@ https://github.com/user-attachments/assets/2ef8feab-d220-48bf-b926-bba2265a6dab
 
 
 
+
+
 ### For the data from the AVIRIS Portal:
 
-### I : Data Collection
+### Step I : Data Collection
 Steps to Access and Process the AVIRIS Dataset:
 
-Step 1: Visit the AVIRIS data access page. This is the starting point for accessing AVIRIS datasets.
+1: Visit the AVIRIS data access page. This is the starting point for accessing AVIRIS datasets.
 
-Step 2: Click on the link to the AVIRIS Data Portal. This will redirect you to the repository for downloading the datasets.
+2: Click on the link to the AVIRIS Data Portal. This will redirect you to the repository for downloading the datasets.
 
-Step 3: On the Data Portal page, find the section labeled "Download KML Layers by Year". Select any of the listed years and download the corresponding KML file.
+3: On the Data Portal page, find the section labeled "Download KML Layers by Year". Select any of the listed years and download the corresponding KML file.
 
-Step 4: Open Google Earth on your system or access it online through Google Earth Web.
+4: Open Google Earth on your system or access it online through Google Earth Web.
 
-Step 5: In Google Earth:
+5: In Google Earth:
 Click "New" in the top-left corner of the screen.
 Select "Open Local KML File", or press Ctrl + L, and then browse to the location where you saved the downloaded KML file.
 
 ![Screenshot 2024-12-15 165416](https://github.com/user-attachments/assets/45a02ddb-4747-4baf-9371-40e8a37f303a)
 
 
-Step 6: Once the KML file is loaded, red lines or highlighted areas will appear on the map. Click on any of these red lines, and follow the provided link to download the associated dataset.
+6: Once the KML file is loaded, red lines or highlighted areas will appear on the map. Click on any of these red lines, and follow the provided link to download the associated dataset.
 
 ![Screenshot 2024-12-15 165811](https://github.com/user-attachments/assets/4d80f311-1bf2-48a8-ae53-4ba7813a2dfa)
 
-Step 7: After downloading, unzip the file to extract its contents. The extracted folder will contain multiple files, including HDR and large data files.
+7: After downloading, unzip the file to extract its contents. The extracted folder will contain multiple files, including HDR and large data files.
 
-Step 8: Download IDCubeLite from this link. This tool will help you convert the dataset into MATLAB-compatible formats.
+8: Download IDCubeLite from this link. This tool will help you convert the dataset into MATLAB-compatible formats.
 
-Step 9: Open the IDCubeLite application after installation.
+9: Open the IDCubeLite application after installation.
 
-Step 10: In IDCubeLite:
+10: In IDCubeLite:
 Click on "File" in the top-left corner of the window.
 Select "Import Other Formats and Convert to IDCube".
 From the format options, choose "AVIRIS" and then "AVIRIS Classic".
 
 ![Screenshot 2024-12-15 170645](https://github.com/user-attachments/assets/80a48484-9b3c-4389-b13e-7c97aa4a8643)
 
-Step 11: Browse to the folder containing the unzipped data and select the .hdr file and the datafile (large size datafile)
+11: Browse to the folder containing the unzipped data and select the .hdr file and the datafile (large size datafile)
 
-Step 12: Once the files are selected, IDCubeLite will process them and generate a MATLAB-compatible data file. The generated file will be saved to your system.
+12: Once the files are selected, IDCubeLite will process them and generate a MATLAB-compatible data file. The generated file will be saved to your system.
 
 ![Screenshot 2024-12-15 171145](https://github.com/user-attachments/assets/30f34b6b-d781-4177-912f-eb82c5b5db28)
 
 ![Screenshot 2024-12-15 172228](https://github.com/user-attachments/assets/f43885be-a11b-4a48-95da-ae2e71c5d778)
 
+### Step 2: Data Preparation
 
 
 
