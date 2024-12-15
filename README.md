@@ -112,9 +112,15 @@ Click on "File" in the top-left corner of the window.
 Select "Import Other Formats and Convert to IDCube".
 From the format options, choose "AVIRIS" and then "AVIRIS Classic".
 
+![Screenshot 2024-12-15 170645](https://github.com/user-attachments/assets/80a48484-9b3c-4389-b13e-7c97aa4a8643)
+
 Step 11: Browse to the folder containing the unzipped data and select the .hdr file and the datafile (large size datafile)
 
 Step 12: Once the files are selected, IDCubeLite will process them and generate a MATLAB-compatible data file. The generated file will be saved to your system.
+
+![Screenshot 2024-12-15 171145](https://github.com/user-attachments/assets/30f34b6b-d781-4177-912f-eb82c5b5db28)
+![Screenshot 2024-12-15 172228](https://github.com/user-attachments/assets/f43885be-a11b-4a48-95da-ae2e71c5d778)
+
 
 
 
