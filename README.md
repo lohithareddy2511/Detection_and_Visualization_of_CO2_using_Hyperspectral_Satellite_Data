@@ -122,13 +122,13 @@ From the format options, choose "AVIRIS" and then "AVIRIS Classic".
 
 ![Screenshot 2024-12-15 172228](https://github.com/user-attachments/assets/f43885be-a11b-4a48-95da-ae2e71c5d778)
 
-### Step 2: Data Preparation
+### Step II: Data Preparation
 
 The code ensures the integrity and usability of the loaded data. It checks for the presence of hyperspectral data and wavelength information. The program dynamically identifies the fields containing this data, ensuring flexibility for different datasets. Additionally, the dimensions of the hyperspectral cube are extracted and displayed to confirm the dataset’s structure. This step ensures that the data is properly organized for further processing.
 
 ![Screenshot 2024-12-15 192759](https://github.com/user-attachments/assets/1d5ded96-8f93-4947-aa3e-73b9b3d7abb6)
 
-### Step 3: CO2 Detection Algorithm
+### Step III: CO2 Detection Algorithm
 
 The algorithm focuses on leveraging the hyperspectral cube to isolate and analyze CO₂ absorption bands. Specifically, the NIR and SWIR absorption regions are targeted. For each region:
 
@@ -139,7 +139,7 @@ The algorithm integrates critical components, including spectral filtering and i
 
 ![Screenshot 2024-12-15 193130](https://github.com/user-attachments/assets/5f012469-56e0-4761-9f4a-f98ef603eabc)
 
-### Step 4: Data Analysis
+### Step IV: Data Analysis
 
 The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed spatially. Latitude and longitude grids are generated to align the concentration data with geographical coordinates. The linspace function maps the image dimensions to global latitude and longitude ranges, enabling spatial interpretation. Visualization tools, including color-mapped images, highlight regions with varying CO₂ concentrations. Any missing data points (NaNs) are replaced with zeros to maintain data consistency, ensuring a smooth analytical process.
 
@@ -147,11 +147,9 @@ The estimated CO₂ concentrations from both the NIR and SWIR bands are analyzed
 
 ![image](https://github.com/user-attachments/assets/e889e771-21b3-42ee-ad0d-01aa322f0b1d)
 
+### Step V: Visualization
 
-
-### Step 5: Visualization
-
-Visualize the detected CO2 concentration, including geospatial information, on a world map using the Mapping Toolbox. Validation is achieved through visualization and error checks. The extracted bands and concentration maps are scrutinized for logical consistency, such as ensuring non-zero pixel values and meaningful spatial variations. The CO₂ maps are compared across NIR and SWIR bands to detect discrepancies or confirm agreement. Additionally, the use of predefined calibration parameters allows a baseline comparison for estimated concentrations. These steps collectively validate the robustness of the algorithm, ensuring that the results are both scientifically meaningful and practically applicable.
+Visualize the detected CO2 concentration, including geospatial information, on a world map using the Mapping Toolbox. 
 
 ![image](https://github.com/user-attachments/assets/0e68ba88-2def-4e3e-ab4c-f57e60e2825d)
 
