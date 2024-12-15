@@ -156,15 +156,6 @@ title('Estimated CO₂ Concentration (ppm) - SWIR Band');
 xlabel('Pixel X');
 ylabel('Pixel Y');
 
-
-
-
-
-
-
-
-
-
 % Define latitude and longitude limits
 latlim = [-90, 90];
 lonlim = [-90, 90];
