@@ -127,6 +127,7 @@ From the format options, choose "AVIRIS" and then "AVIRIS Classic".
 
 ### Step 2: Data Preparation
 
+The code ensures the integrity and usability of the loaded data. It checks for the presence of hyperspectral data and wavelength information. The program dynamically identifies the fields containing this data, ensuring flexibility for different datasets. Additionally, the dimensions of the hyperspectral cube are extracted and displayed to confirm the dataset’s structure. This step ensures that the data is properly organized for further processing.
 
 
 
