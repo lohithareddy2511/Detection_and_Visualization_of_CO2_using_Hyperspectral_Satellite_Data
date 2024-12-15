@@ -11,7 +11,7 @@ In this work, satellite hyperspectral data is processed to identify high carbon 
 ## ABSTRACT
 CO2 levels in the atmosphere are also on the rise therefore perfect than monitoring and analyzing the rate at which it’s accumulate is crucial in formulation of mitigation measures. One of the main advantages of hyperspectral remote sensing is that the system is able to identify and quantify particular gases, for instance, carbon dioxide by collecting data in a large number of narrow bands at high spatial resolution. This project proposes to predict and map CO2 concentrations utilizing hyperspectral satellite data analyzed in MATLAB. The project starts with the collection of hyperspectral satellite data from Landsat, AVIRIS, or Sentinel-2 instruments or similar. These datasets are very rich in terms of spectral data we have the ability to see what the ‘absorption spectrum of CO2’looks like. After collecting data from a given area, there are some steps taken where; raw data obtained from a specific sensor is converted into physical units through radiometric calibration. The principal part of the project deals with the creation of a detection algorithm in MATLAB that targets the groups of bands, which correspond to the CO2 band strengths. The depth and shape of these absorption features are used to quantify the CO2 concentration using this algorithm. This measures are then used to produce graphical maps on MATLAB which show the distribution of CO2 in the study area. You can compare the detected CO2 concentrations with ground-based measurements, if present. The results of this project make it possible to understand the spatial-temporal distribution of CO2 in the atmosphere and make conclusions regarding regional and global carbon budgets. These methodologies may be generalized to other gases present in the atmosphere thereby making it a powerful instrument in environmental or atmospheric investigations.
 
-#### For the sample data given in Mathworks:
+### For the sample data given in Mathworks:
 ### Step 1: Data Collection
 The provided repository was used to execute the Matlab example ["https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html"](https://in.mathworks.com/help/images/find-regions-multispectral-georeference.html) .Real-time usage of hyperspectral datasets from relevant sources, such AVIRIS or Landsat is possible.
 
@@ -77,9 +77,9 @@ https://github.com/user-attachments/assets/2ef8feab-d220-48bf-b926-bba2265a6dab
 
 
 
-#### For the data from the AVIRIS Portal:
+### For the data from the AVIRIS Portal:
 
-### Step 1: Data Collection
+### I : Data Collection
 Steps to Access and Process the AVIRIS Dataset:
 
 Step 1: Visit the AVIRIS data access page. This is the starting point for accessing AVIRIS datasets.
