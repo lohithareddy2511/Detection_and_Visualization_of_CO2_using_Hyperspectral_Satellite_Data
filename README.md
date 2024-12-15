@@ -93,7 +93,13 @@ Step 4: Open Google Earth on your system or access it online through Google Eart
 Step 5: In Google Earth:
 Click "New" in the top-left corner of the screen.
 Select "Open Local KML File", or press Ctrl + L, and then browse to the location where you saved the downloaded KML file.
+
+![Screenshot 2024-12-15 165416](https://github.com/user-attachments/assets/45a02ddb-4747-4baf-9371-40e8a37f303a)
+
+
 Step 6: Once the KML file is loaded, red lines or highlighted areas will appear on the map. Click on any of these red lines, and follow the provided link to download the associated dataset.
+
+
 
 Step 7: After downloading, unzip the file to extract its contents. The extracted folder will contain multiple files, including HDR and large data files.
 
