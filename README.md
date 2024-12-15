@@ -99,7 +99,7 @@ Select "Open Local KML File", or press Ctrl + L, and then browse to the location
 
 Step 6: Once the KML file is loaded, red lines or highlighted areas will appear on the map. Click on any of these red lines, and follow the provided link to download the associated dataset.
 
-
+![Screenshot 2024-12-15 165811](https://github.com/user-attachments/assets/4d80f311-1bf2-48a8-ae53-4ba7813a2dfa)
 
 Step 7: After downloading, unzip the file to extract its contents. The extracted folder will contain multiple files, including HDR and large data files.
 
