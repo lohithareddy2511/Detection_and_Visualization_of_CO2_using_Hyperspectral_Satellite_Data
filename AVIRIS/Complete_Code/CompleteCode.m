@@ -1,186 +1,148 @@
-% Clear workspace and command window
-clear;  % Clears all variables from the workspace
-clc;    % Clears the command window
+%% Clear Workspace and Command Window
+clear;  % Clears all variables from the workspace, ensuring no previous data is loaded
+clc;    % Clears the command window to remove any previous output
+disp("Workspace and command window cleared.");  % Display a message indicating that the workspace and command window have been cleared
 
-%% Step 1: Load the Hyperspectral Data
-dataFile = 'f110712t01p00r18rdn_c_sc01_ort_img.mat';  % Define the name of the .mat file containing the hyperspectral data
-dataStruct = load(dataFile);  % Load the data from the specified .mat file into a structure
+%% Load Hyperspectral Data from .mat File
+dataFile = 'f110712t01p00r18rdn_c_sc01_ort_img.mat';  % Define the name of the .mat file containing hyperspectral data
+dataStruct = load(dataFile);  % Load the data from the .mat file into a structure named 'dataStruct'
 
 % Display available fields in the loaded .mat file
 disp('Fields in the loaded .mat file:');
 disp(fieldnames(dataStruct));  % Display the names of all fields in the loaded .mat file
 
-%% Step 2: Identify Hyperspectral Data and Wavelength Information
-
-% Dynamically identify the hyperspectral data field
+%% Create a Hypercube Object
+% Dynamically identify the hyperspectral data field and wavelengths from the loaded data
 fieldNames = fieldnames(dataStruct);  % Get the field names of the loaded data structure
-bands = [];  % Initialize variable to store the hyperspectral data (3D array)
-wavelengths = [];  % Initialize variable to store wavelength data
+bands = [];  % Initialize an empty variable to store the hyperspectral data (bands)
+wavelengths = [];  % Initialize an empty variable to store the wavelength data
 
-% Iterate through the fields to find the hyperspectral data and wavelength information
 for i = 1:numel(fieldNames)
-    fieldData = dataStruct.(fieldNames{i});  % Access the data in the current field
-    if ndims(fieldData) == 3  % Check if the data is a 3D array (hyperspectral cube)
-        bands = fieldData;  % Store the hyperspectral data
-        disp(['Using hyperspectral data field: ', fieldNames{i}]);  % Display which field is used for hyperspectral data
-    elseif isvector(fieldData) && isnumeric(fieldData)  % Check if the field is a numeric vector (wavelengths)
-        wavelengths = fieldData;  % Store the wavelength data
-        disp(['Using wavelength field: ', fieldNames{i}]);  % Display which field is used for wavelengths
+    fieldData = dataStruct.(fieldNames{i});  % Access the data for each field dynamically
+    if ndims(fieldData) == 3  % Check if the data is 3-dimensional (hyperspectral data)
+        bands = fieldData;  % Store the hyperspectral data (3D matrix)
+    elseif isvector(fieldData) && isnumeric(fieldData)  % Check if the field contains wavelength data (1D array)
+        wavelengths = fieldData;  % Store the wavelength data (1D array)
     end
 end
 
-% Error checks to ensure data is loaded correctly
-if isempty(bands)
-    error('No 3D hyperspectral data found in the .mat file.');  % Display an error if no hyperspectral data is found
-end
+% Create a hypercube object
+hcube = hypercube(bands, wavelengths);  % Create a hypercube object using the hyperspectral bands and wavelengths
+disp('Hypercube object created successfully:');  % Display a success message
+disp(hcube);  % Display the details of the created hypercube object
 
-if isempty(wavelengths)
-    error('No wavelength information found in the .mat file.');  % Display an error if no wavelength data is found
-end
+%% Remove Continuum and Calculate Spectral Indices
+% Remove continuum from the hypercube data to normalize the reflectance values
+normalizedData = removeContinuum(hcube);  % Call the 'removeContinuum' function to normalize the data
 
-% Display data dimensions
-[h, w, d] = size(bands);  % Get the dimensions of the hyperspectral data (height, width, depth)
-disp(['Data dimensions: ', num2str(h), ' x ', num2str(w), ' x ', num2str(d)]);  % Display the dimensions
-disp(['Number of wavelengths: ', num2str(length(wavelengths))]);  % Display the number of wavelengths in the data
+% Calculate spectral indices (e.g., NDVI, etc.) from the normalized data
+spectralIndicesData = spectralIndices(normalizedData);  % Call the 'spectralIndices' function to calculate spectral indices
 
-%% Step 3: Identify CO₂ Absorption Bands
-
-% CO₂ absorption wavelength ranges (in nanometers)
-co2_nir_range = [1570, 1610];  % NIR (Near-Infrared) CO₂ absorption range
-co2_swir_range = [2000, 2060]; % SWIR (Shortwave Infrared) CO₂ absorption range
+%% Identify CO₂ Absorption Bands
+% Define the wavelength ranges for CO₂ absorption in NIR and SWIR regions (in nanometers)
+co2_nir_range = [1570, 1610];  % Define the NIR CO₂ absorption range
+co2_swir_range = [2000, 2060]; % Define the SWIR CO₂ absorption range
 
 % Find the indices of the bands within the CO₂ absorption ranges
-co2_nir_indices = find(wavelengths >= co2_nir_range(1) & wavelengths <= co2_nir_range(2));  % Find NIR indices
-co2_swir_indices = find(wavelengths >= co2_swir_range(1) & wavelengths <= co2_swir_range(2)); % Find SWIR indices
+co2_nir_indices = find(hcube.Wavelength >= co2_nir_range(1) & hcube.Wavelength <= co2_nir_range(2));  % Find the NIR CO₂ band indices
+co2_swir_indices = find(hcube.Wavelength >= co2_swir_range(1) & hcube.Wavelength <= co2_swir_range(2)); % Find the SWIR CO₂ band indices
 
-% Display NIR CO₂ indices
-if ~isempty(co2_nir_indices)
-    disp(['NIR CO₂ band indices: ', sprintf('%d ', co2_nir_indices)]);  % Display NIR CO₂ band indices
-else
-    disp('No NIR CO₂ bands found.');  % Display message if no NIR CO₂ bands found
-end
+% Display the indices of the CO₂ bands in the NIR and SWIR ranges
+disp(['NIR CO₂ band indices: ', sprintf('%d ', co2_nir_indices)]);  % Display the indices of the NIR CO₂ bands
+disp(['SWIR CO₂ band indices: ', sprintf('%d ', co2_swir_indices)]);  % Display the indices of the SWIR CO₂ bands
 
-% Display SWIR CO₂ indices
-if ~isempty(co2_swir_indices)
-    disp(['SWIR CO₂ band indices: ', sprintf('%d ', co2_swir_indices)]);  % Display SWIR CO₂ band indices
-else
-    disp('No SWIR CO₂ bands found.');  % Display message if no SWIR CO₂ bands found
-end
-
-%% Step 4: Extract and Visualize CO₂ Bands
-
-% Check if any CO₂ bands were found
-if isempty(co2_nir_indices) && isempty(co2_swir_indices)
-    error('No CO₂ bands found within the specified ranges.');  % Display an error if no CO₂ bands were found
-end
-
+%% Extract and Visualize CO₂ Bands
 % Visualize the first NIR CO₂ band if available
-if ~isempty(co2_nir_indices)
-    co2_nir_band = bands(:, :, co2_nir_indices(1));  % Extract the first NIR CO₂ band
-    figure;  % Create a new figure for visualization
-    imagesc(co2_nir_band);  % Display the NIR CO₂ band as an image
-    colorbar;  % Add a color bar to the figure
-    title(['NIR CO₂ Band at ', num2str(wavelengths(co2_nir_indices(1))), ' nm']);  % Add a title with the wavelength
+if ~isempty(co2_nir_indices)  % Check if there are any NIR CO₂ bands
+    co2_nir_band = hcube.DataCube(:, :, co2_nir_indices(1));  % Extract the first NIR CO₂ band from the hypercube data
+    figure;  % Create a new figure for displaying the band image
+    imagesc(co2_nir_band);  % Display the NIR CO₂ band as an image (scale the values to fit the color range)
+    colormap(jet);  % Use the 'jet' colormap to display the image in colorful shades
+    colorbar;  % Add a color bar to the figure to indicate the intensity scale
+    title(['NIR CO₂ Band at ', num2str(hcube.Wavelength(co2_nir_indices(1))), ' nm']);  % Set the title of the figure with the corresponding wavelength
+    xlabel('Pixel X');  % Label the x-axis as 'Pixel X'
+    ylabel('Pixel Y');  % Label the y-axis as 'Pixel Y'
 end
 
 % Visualize the first SWIR CO₂ band if available
-if ~isempty(co2_swir_indices)
-    co2_swir_band = bands(:, :, co2_swir_indices(1));  % Extract the first SWIR CO₂ band
-    figure;  % Create a new figure for visualization
-    imagesc(co2_swir_band);  % Display the SWIR CO₂ band as an image
+if ~isempty(co2_swir_indices)  % Check if there are any SWIR CO₂ bands
+    co2_swir_band = hcube.DataCube(:, :, co2_swir_indices(1));  % Extract the first SWIR CO₂ band from the hypercube data
+    figure;  % Create a new figure for displaying the band image
+    imagesc(co2_swir_band);  % Display the SWIR CO₂ band as an image (scale the values to fit the color range)
+    colormap(parula);  % Use the 'parula' colormap to display the image
+    colorbar;  % Add a color bar to the figure to indicate the intensity scale
+    title(['SWIR CO₂ Band at ', num2str(hcube.Wavelength(co2_swir_indices(1))), ' nm']);  % Set the title with the corresponding wavelength
+    xlabel('Pixel X');  % Label the x-axis as 'Pixel X'
+    ylabel('Pixel Y');  % Label the y-axis as 'Pixel Y'
+end
+
+% **Explanatory Notes for Visualization Section:**
+% The images display the CO₂ absorption bands at specific wavelengths. 
+% The NIR CO₂ band is shown first (around 1570-1610 nm), and the SWIR CO₂ band (around 2000-2060 nm) follows.
+% These visualizations represent how the CO₂ concentration impacts the reflectance of light in those bands.
+% Brighter areas typically indicate stronger absorption or higher CO₂ concentrations.
+
+
+%% Estimate CO₂ Concentration
+% Example calibration parameters for estimating CO₂ concentration from band data
+scalingFactor = 0.1;  % Scaling factor to convert band reflectance values to CO₂ concentration
+offset = 350;         % Baseline CO₂ concentration in ppm (parts per million)
+
+% Convert the NIR CO₂ band to CO₂ concentration in ppm
+if exist('co2_nir_band', 'var')  % Check if the NIR CO₂ band exists
+    co2_nir_ppm = co2_nir_band * scalingFactor + offset;  % Convert NIR band values to CO₂ concentration in ppm
+    figure;  % Create a new figure for displaying the CO₂ concentration map
+    imagesc(co2_nir_ppm);  % Display the CO₂ concentration map as an image
+    colormap(turbo);  % Use the 'turbo' colormap for better visual clarity of concentration variations
+    colorbar;  % Add a color bar to the figure for interpreting the CO₂ concentration scale
+    title('Estimated CO₂ Concentration (ppm) - NIR Band');  % Set the title of the figure
+    xlabel('Pixel X');  % Label the x-axis as 'Pixel X'
+    ylabel('Pixel Y');  % Label the y-axis as 'Pixel Y'
+end
+
+% Convert the SWIR CO₂ band to CO₂ concentration in ppm
+if exist('co2_swir_band', 'var')  % Check if the SWIR CO₂ band exists
+    co2_swir_ppm = co2_swir_band * scalingFactor + offset;  % Convert SWIR band values to CO₂ concentration in ppm
+    figure;  % Create a new figure for displaying the CO₂ concentration map
+    imagesc(co2_swir_ppm);  % Display the CO₂ concentration map as an image
+    colormap(turbo);  % Use the 'turbo' colormap for clarity
     colorbar;  % Add a color bar to the figure
-    title(['SWIR CO₂ Band at ', num2str(wavelengths(co2_swir_indices(1))), ' nm']);  % Add a title with the wavelength
+    title('Estimated CO₂ Concentration (ppm) - SWIR Band');  % Set the title of the figure
+    xlabel('Pixel X');  % Label the x-axis as 'Pixel X'
+    ylabel('Pixel Y');  % Label the y-axis as 'Pixel Y'
 end
 
-%% Step 5: Optional - Save CO₂ Band Images
+% Explanatory Notes for CO₂ Concentration Estimation:**
+% The CO₂ concentration maps display the estimated concentration values based on the NIR and SWIR bands.
+% The scaling factor and offset are used to convert the reflectance values from the hyperspectral data into CO₂ concentration values in ppm.
+% Higher intensity or brighter areas typically correspond to higher CO₂ concentrations in the image.
 
-% Save NIR CO₂ band image if available
-if exist('co2_nir_band', 'var')
-    outputNirFile = 'co2_nir_band_image.mat';  % Define the output file name for NIR CO₂ band image
-    save(outputNirFile, 'co2_nir_band');  % Save the NIR CO₂ band image to the specified file
-    disp(['NIR CO₂ band image saved to ', outputNirFile]);  % Display a message confirming the file was saved
+%% Save CO₂ Band Images (Optional)
+% Optionally, save the extracted CO₂ band images for later use or analysis
+if exist('co2_nir_band', 'var')  % Check if the NIR CO₂ band exists
+    outputNirFile = 'co2_nir_band_image.mat';  % Define the output file name for the NIR band image
+    save(outputNirFile, 'co2_nir_band');  % Save the NIR CO₂ band to the .mat file
+    disp(['NIR CO₂ band image saved to ', outputNirFile]);  % Display a message indicating the file has been saved
 end
 
-% Save SWIR CO₂ band image if available
-if exist('co2_swir_band', 'var')
-    outputSwirFile = 'co2_swir_band_image.mat';  % Define the output file name for SWIR CO₂ band image
-    save(outputSwirFile, 'co2_swir_band');  % Save the SWIR CO₂ band image to the specified file
-    disp(['SWIR CO₂ band image saved to ', outputSwirFile]);  % Display a message confirming the file was saved
+if exist('co2_swir_band', 'var')  % Check if the SWIR CO₂ band exists
+    outputSwirFile = 'co2_swir_band_image.mat';  % Define the output file name for the SWIR band image
+    save(outputSwirFile, 'co2_swir_band');  % Save the SWIR CO₂ band to the .mat file
+    disp(['SWIR CO₂ band image saved to ', outputSwirFile]);  % Display a message indicating the file has been saved
 end
 
-% Visualize NIR CO₂ band with 'jet' colormap
-figure;  % Create a new figure
-imagesc(co2_nir_band);  % Display the NIR CO₂ band as an image
-colormap(jet);  % Apply the 'jet' colormap to the image
-colorbar;  % Add a color bar to the figure
-title('NIR CO₂ Band at 1572.381 nm');  % Add a title with the specific wavelength
-xlabel('Pixel X');  % Label the x-axis
-ylabel('Pixel Y');  % Label the y-axis
+disp('Processing complete.');  % Display a message indicating the processing is complete
 
-% Visualize SWIR CO₂ band with 'parula' colormap
-figure;  % Create a new figure
-imagesc(co2_swir_band);  % Display the SWIR CO₂ band as an image
-colormap(parula);  % Apply the 'parula' colormap to the image
-colorbar;  % Add a color bar to the figure
-title('SWIR CO₂ Band at 2008.315 nm');  % Add a title with the specific wavelength
-xlabel('Pixel X');  % Label the x-axis
-ylabel('Pixel Y');  % Label the y-axis
-
-% Example calibration parameters (you need real data to refine these)
-scalingFactor = 0.1;  % Example scaling factor for converting the image values to CO₂ concentration
-offset = 350;         % Example baseline CO₂ concentration in ppm
-
-% Convert NIR band to CO₂ concentration
-co2_nir_ppm = co2_nir_band * scalingFactor + offset;  % Apply the scaling factor and offset to calculate CO₂ concentration in ppm
-
-% Convert SWIR band to CO₂ concentration
-co2_swir_ppm = co2_swir_band * scalingFactor + offset;  % Apply the scaling factor and offset to calculate CO₂ concentration in ppm
-
-% Visualize CO₂ concentration (NIR)
-figure;  % Create a new figure
-imagesc(co2_nir_ppm);  % Display the estimated CO₂ concentration from the NIR band
-colormap(turbo);  % Apply the 'turbo' colormap to the image
-colorbar;  % Add a color bar to the figure
-title('Estimated CO₂ Concentration (ppm) - NIR Band');  % Add a title
-xlabel('Pixel X');  % Label the x-axis
-ylabel('Pixel Y');  % Label the y-axis
-
-% Visualize CO₂ concentration (SWIR)
-figure;  % Create a new figure
-imagesc(co2_swir_ppm);  % Display the estimated CO₂ concentration from the SWIR band
-colormap(turbo);  % Apply the 'turbo' colormap to the image
-colorbar;  % Add a color bar to the figure
-title('Estimated CO₂ Concentration (ppm) - SWIR Band');  % Add a title
-xlabel('Pixel X');  % Label the x-axis
-ylabel('Pixel Y');  % Label the y-axis
-
-% Define latitude and longitude limits
-latlim = [-90, 90];
-lonlim = [-90, 90];
-
-% Generate latitude and longitude grids
-[rows, cols] = size(co2_swir_ppm);  % Get the number of rows and columns from the CO₂ concentration image (SWIR band)
-lat = linspace(latlim(1), latlim(2), rows);  % Create a vector of latitude values from the minimum to maximum latitude, based on the number of rows in the image
-lon = linspace(lonlim(1), lonlim(2), cols);  % Create a vector of longitude values from the minimum to maximum longitude, based on the number of columns in the image
-[Lat, Lon] = meshgrid(lon, lat);  % Create a 2D grid of latitude and longitude coordinates using meshgrid function
-
-% Replace NaNs with zeros
-co2_swir_ppm(isnan(co2_swir_ppm)) = 0;  % Replace any NaN values in the CO₂ concentration image with zeros (for proper visualization)
-
-% Plot the georeferenced data for SWIR CO₂ concentration
-figure;  % Create a new figure for the plot
-worldmap(latlim, lonlim);  % Set up the world map with specified latitude and longitude limits
-geoshow(Lat, Lon, co2_swir_ppm, 'DisplayType', 'surface');  % Display the CO₂ concentration data (SWIR band) on the map as a surface plot
-colormap(turbo);  % Apply the 'turbo' colormap to the surface plot for better visualization
-colorbar;  % Add a color bar to indicate the CO₂ concentration scale
-caxis([300, 800]);  % Adjust the color scale to range from 300 to 800 ppm for better contrast
-title('Georeferenced CO₂ Concentration (ppm) - SWIR Band');  % Add a title to the plot
-
-% Plot NIR CO₂ ppm on a world map
-figure;  % Create a new figure for the plot
-worldmap(latlim, lonlim);  % Set up the world map with the same latitude and longitude limits
-geoshow(Lat, Lon, co2_nir_ppm, 'DisplayType', 'surface');  % Display the CO₂ concentration data (NIR band) on the map as a surface plot
-colormap(turbo);  % Apply the 'turbo' colormap to the surface plot for better visualization
-colorbar;  % Add a color bar to indicate the CO₂ concentration scale
-title('Georeferenced CO₂ Concentration (ppm) - NIR Band');  % Add a title to the plot
+%% Function to Switch Matching Algorithms
+% Define a function to switch between different spectral matching algorithms
+function result = matchAlgorithm(data, algorithmType)
+    switch algorithmType
+        case 'matchedFilter'
+            result = spectralMatch(data, 'matchedFilter');  % Use spectralMatch for matched filter
+        case 'anotherAlgorithm'
+            result = spectralMatch(data, 'anotherAlgorithm');  % Placeholder for another algorithm
+        otherwise
+            error('Unknown algorithm type specified.');  % Raise an error if an unknown algorithm is provided
+    end
+end
 
